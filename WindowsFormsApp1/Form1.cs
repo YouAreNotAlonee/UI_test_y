@@ -44,11 +44,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void audio_step_back_Click(object sender, EventArgs e)
-        {
-            //audio_step_back.
-            
-        }
+        
 
         private void Settings_Click(object sender, EventArgs e)
         {
@@ -73,6 +69,71 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Down");
             else
                 MessageBox.Show("Error");
+        }
+
+        private void audio_step_forward_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void audio_stop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void audio_play_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void audio_step_back_Click(object sender, EventArgs e)
+        {
+            //audio_step_back.
+        }
+
+        private void zero_dot_two_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void zero_dot_five_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void one_dot_zero_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void one_dot_five_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void two_dot_zero_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Marker_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void folder_open_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Camera_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

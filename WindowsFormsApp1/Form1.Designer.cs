@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.zero_dot_two_btn = new System.Windows.Forms.Button();
+            this.zero_dot_five_btn = new System.Windows.Forms.Button();
+            this.one_dot_zero_btn = new System.Windows.Forms.Button();
+            this.one_dot_five_btn = new System.Windows.Forms.Button();
+            this.two_dot_zero_btn = new System.Windows.Forms.Button();
             this.Speed_tbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Volume_Bar = new System.Windows.Forms.TrackBar();
@@ -48,7 +48,7 @@
             this.Marker = new System.Windows.Forms.Button();
             this.folder_open = new System.Windows.Forms.Button();
             this.Camera = new System.Windows.Forms.Button();
-            this.icons_save = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.Settings = new System.Windows.Forms.Button();
             this.audio_step_forward = new System.Windows.Forms.Button();
             this.audio_stop = new System.Windows.Forms.Button();
@@ -84,55 +84,60 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "VIEWER";
             // 
-            // button1
+            // zero_dot_two_btn
             // 
-            this.button1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(12, 677);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 40);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "x 0.2";
-            this.button1.UseVisualStyleBackColor = true;
+            this.zero_dot_two_btn.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.zero_dot_two_btn.Location = new System.Drawing.Point(12, 677);
+            this.zero_dot_two_btn.Name = "zero_dot_two_btn";
+            this.zero_dot_two_btn.Size = new System.Drawing.Size(60, 40);
+            this.zero_dot_two_btn.TabIndex = 1;
+            this.zero_dot_two_btn.Text = "x 0.2";
+            this.zero_dot_two_btn.UseVisualStyleBackColor = true;
+            this.zero_dot_two_btn.Click += new System.EventHandler(this.zero_dot_two_btn_Click);
             // 
-            // button2
+            // zero_dot_five_btn
             // 
-            this.button2.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(78, 677);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 40);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "x 0.5";
-            this.button2.UseVisualStyleBackColor = true;
+            this.zero_dot_five_btn.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.zero_dot_five_btn.Location = new System.Drawing.Point(78, 677);
+            this.zero_dot_five_btn.Name = "zero_dot_five_btn";
+            this.zero_dot_five_btn.Size = new System.Drawing.Size(60, 40);
+            this.zero_dot_five_btn.TabIndex = 2;
+            this.zero_dot_five_btn.Text = "x 0.5";
+            this.zero_dot_five_btn.UseVisualStyleBackColor = true;
+            this.zero_dot_five_btn.Click += new System.EventHandler(this.zero_dot_five_btn_Click);
             // 
-            // button3
+            // one_dot_zero_btn
             // 
-            this.button3.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(144, 677);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 40);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "x 1.0";
-            this.button3.UseVisualStyleBackColor = true;
+            this.one_dot_zero_btn.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.one_dot_zero_btn.Location = new System.Drawing.Point(144, 677);
+            this.one_dot_zero_btn.Name = "one_dot_zero_btn";
+            this.one_dot_zero_btn.Size = new System.Drawing.Size(60, 40);
+            this.one_dot_zero_btn.TabIndex = 3;
+            this.one_dot_zero_btn.Text = "x 1.0";
+            this.one_dot_zero_btn.UseVisualStyleBackColor = true;
+            this.one_dot_zero_btn.Click += new System.EventHandler(this.one_dot_zero_btn_Click);
             // 
-            // button4
+            // one_dot_five_btn
             // 
-            this.button4.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.Location = new System.Drawing.Point(210, 677);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 40);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "x 1.5";
-            this.button4.UseVisualStyleBackColor = true;
+            this.one_dot_five_btn.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.one_dot_five_btn.Location = new System.Drawing.Point(210, 677);
+            this.one_dot_five_btn.Name = "one_dot_five_btn";
+            this.one_dot_five_btn.Size = new System.Drawing.Size(60, 40);
+            this.one_dot_five_btn.TabIndex = 4;
+            this.one_dot_five_btn.Text = "x 1.5";
+            this.one_dot_five_btn.UseVisualStyleBackColor = true;
+            this.one_dot_five_btn.Click += new System.EventHandler(this.one_dot_five_btn_Click);
             // 
-            // button5
+            // two_dot_zero_btn
             // 
-            this.button5.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button5.Location = new System.Drawing.Point(276, 677);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(60, 40);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "x 2.0";
-            this.button5.UseVisualStyleBackColor = true;
+            this.two_dot_zero_btn.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.two_dot_zero_btn.Location = new System.Drawing.Point(276, 677);
+            this.two_dot_zero_btn.Name = "two_dot_zero_btn";
+            this.two_dot_zero_btn.Size = new System.Drawing.Size(60, 40);
+            this.two_dot_zero_btn.TabIndex = 5;
+            this.two_dot_zero_btn.Text = "x 2.0";
+            this.two_dot_zero_btn.UseVisualStyleBackColor = true;
+            this.two_dot_zero_btn.Click += new System.EventHandler(this.two_dot_zero_btn_Click);
             // 
             // Speed_tbox
             // 
@@ -265,6 +270,7 @@
             this.Marker.Size = new System.Drawing.Size(60, 40);
             this.Marker.TabIndex = 14;
             this.Marker.UseVisualStyleBackColor = false;
+            this.Marker.Click += new System.EventHandler(this.Marker_Click);
             // 
             // folder_open
             // 
@@ -275,6 +281,7 @@
             this.folder_open.Size = new System.Drawing.Size(60, 40);
             this.folder_open.TabIndex = 13;
             this.folder_open.UseVisualStyleBackColor = true;
+            this.folder_open.Click += new System.EventHandler(this.folder_open_Click);
             // 
             // Camera
             // 
@@ -285,16 +292,18 @@
             this.Camera.Size = new System.Drawing.Size(60, 40);
             this.Camera.TabIndex = 12;
             this.Camera.UseVisualStyleBackColor = true;
+            this.Camera.Click += new System.EventHandler(this.Camera_Click);
             // 
-            // icons_save
+            // save
             // 
-            this.icons_save.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.icons_save;
-            this.icons_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.icons_save.Location = new System.Drawing.Point(1086, 677);
-            this.icons_save.Name = "icons_save";
-            this.icons_save.Size = new System.Drawing.Size(60, 40);
-            this.icons_save.TabIndex = 11;
-            this.icons_save.UseVisualStyleBackColor = true;
+            this.save.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.icons_save;
+            this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.save.Location = new System.Drawing.Point(1086, 677);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(60, 40);
+            this.save.TabIndex = 11;
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // Settings
             // 
@@ -318,6 +327,7 @@
             this.audio_step_forward.Size = new System.Drawing.Size(60, 40);
             this.audio_step_forward.TabIndex = 9;
             this.audio_step_forward.UseVisualStyleBackColor = true;
+            this.audio_step_forward.Click += new System.EventHandler(this.audio_step_forward_Click);
             // 
             // audio_stop
             // 
@@ -331,6 +341,7 @@
             this.audio_stop.Size = new System.Drawing.Size(60, 40);
             this.audio_stop.TabIndex = 8;
             this.audio_stop.UseVisualStyleBackColor = true;
+            this.audio_stop.Click += new System.EventHandler(this.audio_stop_Click);
             // 
             // audio_play
             // 
@@ -343,6 +354,7 @@
             this.audio_play.Size = new System.Drawing.Size(60, 40);
             this.audio_play.TabIndex = 7;
             this.audio_play.UseVisualStyleBackColor = true;
+            this.audio_play.Click += new System.EventHandler(this.audio_play_Click);
             // 
             // audio_step_back
             // 
@@ -459,17 +471,17 @@
             this.Controls.Add(this.Marker);
             this.Controls.Add(this.folder_open);
             this.Controls.Add(this.Camera);
-            this.Controls.Add(this.icons_save);
+            this.Controls.Add(this.save);
             this.Controls.Add(this.Settings);
             this.Controls.Add(this.audio_step_forward);
             this.Controls.Add(this.audio_stop);
             this.Controls.Add(this.audio_play);
             this.Controls.Add(this.audio_step_back);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.two_dot_zero_btn);
+            this.Controls.Add(this.one_dot_five_btn);
+            this.Controls.Add(this.one_dot_zero_btn);
+            this.Controls.Add(this.zero_dot_five_btn);
+            this.Controls.Add(this.zero_dot_two_btn);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainForm";
@@ -494,17 +506,17 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button zero_dot_two_btn;
+        private System.Windows.Forms.Button zero_dot_five_btn;
+        private System.Windows.Forms.Button one_dot_zero_btn;
+        private System.Windows.Forms.Button one_dot_five_btn;
+        private System.Windows.Forms.Button two_dot_zero_btn;
         private System.Windows.Forms.Button audio_step_back;
         private System.Windows.Forms.Button audio_play;
         private System.Windows.Forms.Button audio_stop;
         private System.Windows.Forms.Button audio_step_forward;
         private System.Windows.Forms.Button Settings;
-        private System.Windows.Forms.Button icons_save;
+        private System.Windows.Forms.Button save;
         private System.Windows.Forms.Button Camera;
         private System.Windows.Forms.Button folder_open;
         private System.Windows.Forms.Button Marker;
