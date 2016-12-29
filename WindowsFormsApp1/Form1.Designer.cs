@@ -38,10 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Volume_Bar = new System.Windows.Forms.TrackBar();
             this.label6 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -62,6 +58,10 @@
             this.time_tbox = new System.Windows.Forms.TextBox();
             this.trackBar = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Dirve_btn = new System.Windows.Forms.CheckBox();
+            this.Event_btn = new System.Windows.Forms.CheckBox();
+            this.Parking_btn = new System.Windows.Forms.CheckBox();
+            this.Camera_btn = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Volume_Bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -177,58 +177,6 @@
             this.label6.Size = new System.Drawing.Size(103, 29);
             this.label6.TabIndex = 23;
             this.label6.Text = "G 센서";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.radioButton1.Location = new System.Drawing.Point(900, 25);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(58, 20);
-            this.radioButton1.TabIndex = 29;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "상시";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.radioButton2.Location = new System.Drawing.Point(975, 25);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(74, 20);
-            this.radioButton2.TabIndex = 30;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "이벤트";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.radioButton3.Location = new System.Drawing.Point(1065, 25);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(58, 20);
-            this.radioButton3.TabIndex = 31;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "주차";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Checked = true;
-            this.radioButton4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.radioButton4.Location = new System.Drawing.Point(1146, 25);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(58, 20);
-            this.radioButton4.TabIndex = 32;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "사진";
-            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
@@ -454,17 +402,73 @@
             this.groupBox1.TabIndex = 41;
             this.groupBox1.TabStop = false;
             // 
+            // Dirve_btn
+            // 
+            this.Dirve_btn.AutoSize = true;
+            this.Dirve_btn.Checked = true;
+            this.Dirve_btn.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Dirve_btn.Font = new System.Drawing.Font("굴림", 12F);
+            this.Dirve_btn.Location = new System.Drawing.Point(889, 25);
+            this.Dirve_btn.Name = "Dirve_btn";
+            this.Dirve_btn.Size = new System.Drawing.Size(59, 20);
+            this.Dirve_btn.TabIndex = 42;
+            this.Dirve_btn.Text = "상시";
+            this.Dirve_btn.UseVisualStyleBackColor = true;
+            this.Dirve_btn.CheckedChanged += new System.EventHandler(this.Dirve_btn_CheckedChanged);
+            // 
+            // Event_btn
+            // 
+            this.Event_btn.AutoSize = true;
+            this.Event_btn.Checked = true;
+            this.Event_btn.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Event_btn.Font = new System.Drawing.Font("굴림", 12F);
+            this.Event_btn.Location = new System.Drawing.Point(963, 25);
+            this.Event_btn.Name = "Event_btn";
+            this.Event_btn.Size = new System.Drawing.Size(75, 20);
+            this.Event_btn.TabIndex = 43;
+            this.Event_btn.Text = "이벤트";
+            this.Event_btn.UseVisualStyleBackColor = true;
+            this.Event_btn.CheckedChanged += new System.EventHandler(this.Event_btn_CheckedChanged);
+            // 
+            // Parking_btn
+            // 
+            this.Parking_btn.AutoSize = true;
+            this.Parking_btn.Checked = true;
+            this.Parking_btn.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Parking_btn.Font = new System.Drawing.Font("굴림", 12F);
+            this.Parking_btn.Location = new System.Drawing.Point(1055, 25);
+            this.Parking_btn.Name = "Parking_btn";
+            this.Parking_btn.Size = new System.Drawing.Size(59, 20);
+            this.Parking_btn.TabIndex = 44;
+            this.Parking_btn.Text = "주차";
+            this.Parking_btn.UseVisualStyleBackColor = true;
+            this.Parking_btn.CheckedChanged += new System.EventHandler(this.Parking_btn_CheckedChanged);
+            // 
+            // Camera_btn
+            // 
+            this.Camera_btn.AutoSize = true;
+            this.Camera_btn.Checked = true;
+            this.Camera_btn.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.Camera_btn.Font = new System.Drawing.Font("굴림", 12F);
+            this.Camera_btn.Location = new System.Drawing.Point(1132, 25);
+            this.Camera_btn.Name = "Camera_btn";
+            this.Camera_btn.Size = new System.Drawing.Size(75, 20);
+            this.Camera_btn.TabIndex = 45;
+            this.Camera_btn.Text = "카메라";
+            this.Camera_btn.UseVisualStyleBackColor = true;
+            this.Camera_btn.CheckedChanged += new System.EventHandler(this.Camera_btn_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1219, 729);
+            this.Controls.Add(this.Camera_btn);
+            this.Controls.Add(this.Parking_btn);
+            this.Controls.Add(this.Event_btn);
+            this.Controls.Add(this.Dirve_btn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
@@ -527,10 +531,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.TrackBar LeftRight;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -539,6 +539,10 @@
         private System.Windows.Forms.TextBox time_tbox;
         private System.Windows.Forms.TrackBar trackBar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox Dirve_btn;
+        private System.Windows.Forms.CheckBox Event_btn;
+        private System.Windows.Forms.CheckBox Parking_btn;
+        private System.Windows.Forms.CheckBox Camera_btn;
     }
 }
 
