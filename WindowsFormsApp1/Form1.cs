@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OpenCvSharp;
 
 namespace WindowsFormsApp1
 {
     public partial class MainForm : Form
     {
+        
         public MainForm()
         {
+            //VideoCapture cap1("2.mp4");
+            
             InitializeComponent();
             this.BackColor = Color.White;
             /*make mainform's background to white*/
@@ -34,6 +32,7 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             this.listView.View = View.Details;
             this.listView.Columns.Add("날짜", 100, HorizontalAlignment.Center);
             this.listView.Columns.Add("시", 60, HorizontalAlignment.Center);
@@ -41,7 +40,7 @@ namespace WindowsFormsApp1
             this.listView.Columns.Add("녹화타입", 80, HorizontalAlignment.Center);
             this.time_tbox.Text = "00:10 / 00:18";
             /*init listview*/
-
+            imagetest();
             insert_listviewitem();//listview test
         }
         /*listview test*/
@@ -187,6 +186,28 @@ namespace WindowsFormsApp1
                 MessageBox.Show("camera unchecked");
             else
                 MessageBox.Show("camera button error");
+        }
+
+        void imagetest()
+        {
+            Mat src = new Mat("C:/Users/Seyeong/Documents/Visual Studio 2017/Projects/WindowsFormsApp1/lena.jpg", ImreadModes.GrayScale);
+            Mat dst = new Mat();
+
+            Cv2.Canny(src, dst, 50, 200);
+            using (new Window("src image", src))
+            using (new Window("dst image", dst))
+            {
+                Cv2.WaitKey();
+            }
+        }
+
+        void avitest()
+        {
+
+           while(true)
+            {
+                
+            }
         }
     }
 }
