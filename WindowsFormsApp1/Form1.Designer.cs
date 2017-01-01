@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.zero_dot_two_btn = new System.Windows.Forms.Button();
             this.zero_dot_five_btn = new System.Windows.Forms.Button();
@@ -63,8 +64,8 @@
             this.Event_btn = new System.Windows.Forms.CheckBox();
             this.Parking_btn = new System.Windows.Forms.CheckBox();
             this.Camera_btn = new System.Windows.Forms.CheckBox();
-            this.pictureBoxIpl1 = new OpenCvSharp.UserInterface.PictureBoxIpl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.video_panel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Volume_Bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -75,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIpl1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -208,7 +208,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(4, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(306, 378);
+            this.pictureBox1.Size = new System.Drawing.Size(68, 52);
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
@@ -248,7 +248,7 @@
             // 
             // save
             // 
-            this.save.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.icons_save;
+            this.save.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("save.BackgroundImage")));
             this.save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.save.Location = new System.Drawing.Point(1086, 677);
             this.save.Name = "save";
@@ -462,20 +462,19 @@
             this.Camera_btn.UseVisualStyleBackColor = true;
             this.Camera_btn.CheckedChanged += new System.EventHandler(this.Camera_btn_CheckedChanged);
             // 
-            // pictureBoxIpl1
+            // video_panel
             // 
-            this.pictureBoxIpl1.Location = new System.Drawing.Point(316, 25);
-            this.pictureBoxIpl1.Name = "pictureBoxIpl1";
-            this.pictureBoxIpl1.Size = new System.Drawing.Size(566, 378);
-            this.pictureBoxIpl1.TabIndex = 46;
-            this.pictureBoxIpl1.TabStop = false;
+            this.video_panel.Location = new System.Drawing.Point(78, 25);
+            this.video_panel.Name = "video_panel";
+            this.video_panel.Size = new System.Drawing.Size(805, 378);
+            this.video_panel.TabIndex = 46;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1219, 729);
-            this.Controls.Add(this.pictureBoxIpl1);
+            this.Controls.Add(this.video_panel);
             this.Controls.Add(this.Camera_btn);
             this.Controls.Add(this.Parking_btn);
             this.Controls.Add(this.Event_btn);
@@ -515,7 +514,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIpl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,8 +555,8 @@
         private System.Windows.Forms.CheckBox Event_btn;
         private System.Windows.Forms.CheckBox Parking_btn;
         private System.Windows.Forms.CheckBox Camera_btn;
-        private OpenCvSharp.UserInterface.PictureBoxIpl pictureBoxIpl1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel video_panel;
     }
 }
 

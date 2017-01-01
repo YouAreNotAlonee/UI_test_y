@@ -1,18 +1,72 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using OpenCvSharp;
+//using System.IO;
 
+using System.Runtime.InteropServices;
+using DirectShowLib;
+//using OpenCvSharp;
+//using Microsoft.DirectX.AudioVideoPlayback;
 namespace WindowsFormsApp1
 {
     public partial class MainForm : Form
     {
-        
+        IGraphBuilder pGraphBuilder = null;
+        IMediaControl pMediaControl = null;
+
+        IMediaEvent pMediaEvent = null;
+        EventCode eventCode;
+
+        IVideoWindow pVideoWindow = null;
+        private void Video_Stop()
+        {
+            Marshal.ReleaseComObject(pGraphBuilder);
+            pGraphBuilder = null;
+            Marshal.ReleaseComObject(pMediaControl);
+            pMediaControl = null;
+            Marshal.ReleaseComObject(pMediaEvent);
+            pMediaEvent = null;
+            Marshal.ReleaseComObject(pVideoWindow);
+            pVideoWindow = null;
+        }
+
+        private void Video_Play()
+        {
+            pGraphBuilder = (IGraphBuilder)new FilterGraph();
+
+            pMediaControl = (IMediaControl)pGraphBuilder;
+
+            pMediaEvent = (IMediaEvent)pGraphBuilder;
+
+            pVideoWindow = (IVideoWindow)pGraphBuilder;
+
+            pMediaControl.RenderFile("test.wmv");
+
+            pVideoWindow.put_Owner(video_panel.Handle);
+            pVideoWindow.put_WindowStyle(WindowStyle.Child | WindowStyle.ClipSiblings);
+            Rectangle rect = video_panel.ClientRectangle;
+            pVideoWindow.SetWindowPosition(0, 0, rect.Right, rect.Bottom);
+
+            pMediaControl.Run();
+            /*
+            Marshal.ReleaseComObject(pGraphBuilder);
+            pGraphBuilder = null;
+            Marshal.ReleaseComObject(pMediaControl);
+            pMediaControl = null;
+            Marshal.ReleaseComObject(pMediaEvent);
+            pMediaEvent = null;
+            Marshal.ReleaseComObject(pVideoWindow);
+            pVideoWindow = null;
+            */
+        }
+        /*video test*/
+        //Microsoft.DirectX.AudioVideoPlayback.Video video;
         public MainForm()
         {
             //VideoCapture cap1("2.mp4");
             
             InitializeComponent();
+          //  init();
             this.BackColor = Color.White;
             /*make mainform's background to white*/
 
@@ -29,7 +83,7 @@ namespace WindowsFormsApp1
             Speed_tbox.Text = "018";
             /*make button's line transparent*/
         }
-
+       
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -40,7 +94,7 @@ namespace WindowsFormsApp1
             this.listView.Columns.Add("녹화타입", 80, HorizontalAlignment.Center);
             this.time_tbox.Text = "00:10 / 00:18";
             /*init listview*/
-            imagetest();
+            //imagetest();
             insert_listviewitem();//listview test
         }
         /*listview test*/
@@ -90,12 +144,12 @@ namespace WindowsFormsApp1
 
         private void audio_stop_Click(object sender, EventArgs e)
         {
-
+            Video_Stop();
         }
 
         private void audio_play_Click(object sender, EventArgs e)
         {
-
+            Video_Play();
         }
 
         private void audio_step_back_Click(object sender, EventArgs e)
@@ -187,10 +241,10 @@ namespace WindowsFormsApp1
             else
                 MessageBox.Show("camera button error");
         }
-
-        void imagetest()
+        /*
+        void imagetest()//test images by opencv
         {
-            Mat src = new Mat("C:/Users/Seyeong/Documents/Visual Studio 2017/Projects/WindowsFormsApp1/lena.jpg", ImreadModes.GrayScale);
+            Mat src = new Mat("C:/Users/Seyeong/Documents/Visual Studio 2017/Projects/WindowsFormsApp1/lena.jpg", ImreadModes.GrayScale);//temp
             Mat dst = new Mat();
 
             Cv2.Canny(src, dst, 50, 200);
@@ -200,14 +254,8 @@ namespace WindowsFormsApp1
                 Cv2.WaitKey();
             }
         }
+        */
 
-        void avitest()
-        {
-
-           while(true)
-            {
-                
-            }
-        }
+        
     }
 }
