@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.zero_dot_two_btn = new System.Windows.Forms.Button();
@@ -64,8 +63,10 @@
             this.Event_btn = new System.Windows.Forms.CheckBox();
             this.Parking_btn = new System.Windows.Forms.CheckBox();
             this.Camera_btn = new System.Windows.Forms.CheckBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.video_panel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.audio_pause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Volume_Bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -274,7 +275,7 @@
             this.audio_step_forward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.audio_step_forward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.audio_step_forward.ForeColor = System.Drawing.SystemColors.Control;
-            this.audio_step_forward.Location = new System.Drawing.Point(670, 677);
+            this.audio_step_forward.Location = new System.Drawing.Point(721, 677);
             this.audio_step_forward.Name = "audio_step_forward";
             this.audio_step_forward.Size = new System.Drawing.Size(60, 40);
             this.audio_step_forward.TabIndex = 9;
@@ -288,7 +289,7 @@
             this.audio_stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.audio_stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.audio_stop.ForeColor = System.Drawing.SystemColors.Control;
-            this.audio_stop.Location = new System.Drawing.Point(604, 677);
+            this.audio_stop.Location = new System.Drawing.Point(655, 677);
             this.audio_stop.Name = "audio_stop";
             this.audio_stop.Size = new System.Drawing.Size(60, 40);
             this.audio_stop.TabIndex = 8;
@@ -301,7 +302,7 @@
             this.audio_play.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.audio_play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.audio_play.ForeColor = System.Drawing.SystemColors.Control;
-            this.audio_play.Location = new System.Drawing.Point(538, 677);
+            this.audio_play.Location = new System.Drawing.Point(523, 677);
             this.audio_play.Name = "audio_play";
             this.audio_play.Size = new System.Drawing.Size(60, 40);
             this.audio_play.TabIndex = 7;
@@ -314,7 +315,7 @@
             this.audio_step_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.audio_step_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.audio_step_back.ForeColor = System.Drawing.SystemColors.Control;
-            this.audio_step_back.Location = new System.Drawing.Point(472, 677);
+            this.audio_step_back.Location = new System.Drawing.Point(457, 677);
             this.audio_step_back.Name = "audio_step_back";
             this.audio_step_back.Size = new System.Drawing.Size(60, 40);
             this.audio_step_back.TabIndex = 6;
@@ -469,11 +470,45 @@
             this.video_panel.Size = new System.Drawing.Size(805, 378);
             this.video_panel.TabIndex = 46;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(4, 83);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 47;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(17, 328);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // audio_pause
+            // 
+            this.audio_pause.BackColor = System.Drawing.SystemColors.Control;
+            this.audio_pause.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.audio_pause;
+            this.audio_pause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.audio_pause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.audio_pause.ForeColor = System.Drawing.SystemColors.Control;
+            this.audio_pause.Location = new System.Drawing.Point(589, 677);
+            this.audio_pause.Name = "audio_pause";
+            this.audio_pause.Size = new System.Drawing.Size(60, 40);
+            this.audio_pause.TabIndex = 49;
+            this.audio_pause.UseVisualStyleBackColor = false;
+            this.audio_pause.Click += new System.EventHandler(this.audio_pause_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1219, 729);
+            this.Controls.Add(this.audio_pause);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.video_panel);
             this.Controls.Add(this.Camera_btn);
             this.Controls.Add(this.Parking_btn);
@@ -555,8 +590,10 @@
         private System.Windows.Forms.CheckBox Event_btn;
         private System.Windows.Forms.CheckBox Parking_btn;
         private System.Windows.Forms.CheckBox Camera_btn;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel video_panel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button audio_pause;
     }
 }
 

@@ -11,28 +11,40 @@ namespace WindowsFormsApp1
 {
     public partial class MainForm : Form
     {
-        IGraphBuilder pGraphBuilder = null;
-        IMediaControl pMediaControl = null;
+        /*direct X test*/
+        Microsoft.DirectX.AudioVideoPlayback.Video vid;
+        public void init()
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            if(of.ShowDialog()==DialogResult.OK)
+            {
+                vid = new Microsoft.DirectX.AudioVideoPlayback.Video(of.FileName);
+                vid.Owner = this.panel1;
+                //vid.Size = this.panel1.Size;
+            }
+        }
+        //IGraphBuilder pGraphBuilder = null;
+        //IMediaControl pMediaControl = null;
 
-        IMediaEvent pMediaEvent = null;
-        EventCode eventCode;
-
-        IVideoWindow pVideoWindow = null;
+        //IMediaEvent pMediaEvent = null;
+        //EventCode eventCode;
+        
+        //IVideoWindow pVideoWindow = null;
         private void Video_Stop()
         {
-            Marshal.ReleaseComObject(pGraphBuilder);
+            /*Marshal.ReleaseComObject(pGraphBuilder);
             pGraphBuilder = null;
             Marshal.ReleaseComObject(pMediaControl);
             pMediaControl = null;
             Marshal.ReleaseComObject(pMediaEvent);
             pMediaEvent = null;
             Marshal.ReleaseComObject(pVideoWindow);
-            pVideoWindow = null;
+            pVideoWindow = null;*/
         }
 
         private void Video_Play()
         {
-            pGraphBuilder = (IGraphBuilder)new FilterGraph();
+            /*pGraphBuilder = (IGraphBuilder)new FilterGraph();
 
             pMediaControl = (IMediaControl)pGraphBuilder;
 
@@ -48,15 +60,6 @@ namespace WindowsFormsApp1
             pVideoWindow.SetWindowPosition(0, 0, rect.Right, rect.Bottom);
 
             pMediaControl.Run();
-            /*
-            Marshal.ReleaseComObject(pGraphBuilder);
-            pGraphBuilder = null;
-            Marshal.ReleaseComObject(pMediaControl);
-            pMediaControl = null;
-            Marshal.ReleaseComObject(pMediaEvent);
-            pMediaEvent = null;
-            Marshal.ReleaseComObject(pVideoWindow);
-            pVideoWindow = null;
             */
         }
         /*video test*/
@@ -66,7 +69,7 @@ namespace WindowsFormsApp1
             //VideoCapture cap1("2.mp4");
             
             InitializeComponent();
-          //  init();
+            
             this.BackColor = Color.White;
             /*make mainform's background to white*/
 
@@ -82,6 +85,7 @@ namespace WindowsFormsApp1
             audio_stop.ForeColor = Color.Transparent;
             Speed_tbox.Text = "018";
             /*make button's line transparent*/
+            
         }
        
         private void Form1_Load(object sender, EventArgs e)
@@ -96,6 +100,7 @@ namespace WindowsFormsApp1
             /*init listview*/
             //imagetest();
             insert_listviewitem();//listview test
+            //init();
         }
         /*listview test*/
         private void insert_listviewitem()
@@ -139,17 +144,25 @@ namespace WindowsFormsApp1
 
         private void audio_step_forward_Click(object sender, EventArgs e)
         {
+            //vid.
+        }
 
+        private void audio_pause_Click(object sender, EventArgs e)
+        {
+            vid.Pause();
+            
         }
 
         private void audio_stop_Click(object sender, EventArgs e)
         {
-            Video_Stop();
+            //Video_Stop();
+            vid.Stop();
         }
 
         private void audio_play_Click(object sender, EventArgs e)
         {
-            Video_Play();
+            vid.Play();
+            //Video_Play();
         }
 
         private void audio_step_back_Click(object sender, EventArgs e)
@@ -241,21 +254,28 @@ namespace WindowsFormsApp1
             else
                 MessageBox.Show("camera button error");
         }
-        /*
-        void imagetest()//test images by opencv
-        {
-            Mat src = new Mat("C:/Users/Seyeong/Documents/Visual Studio 2017/Projects/WindowsFormsApp1/lena.jpg", ImreadModes.GrayScale);//temp
-            Mat dst = new Mat();
 
-            Cv2.Canny(src, dst, 50, 200);
-            using (new Window("src image", src))
-            using (new Window("dst image", dst))
-            {
-                Cv2.WaitKey();
-            }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            init();
         }
-        */
 
         
+        /*
+void imagetest()//test images by opencv
+{
+Mat src = new Mat("C:/Users/Seyeong/Documents/Visual Studio 2017/Projects/WindowsFormsApp1/lena.jpg", ImreadModes.GrayScale);//temp
+Mat dst = new Mat();
+
+Cv2.Canny(src, dst, 50, 200);
+using (new Window("src image", src))
+using (new Window("dst image", dst))
+{
+Cv2.WaitKey();
+}
+}
+*/
+
+
     }
 }
