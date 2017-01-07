@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.zero_dot_two_btn = new System.Windows.Forms.Button();
@@ -56,17 +57,19 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.UpDown = new System.Windows.Forms.TrackBar();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.time_tbox = new System.Windows.Forms.TextBox();
+            this.curTime = new System.Windows.Forms.TextBox();
             this.trackBar = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Dirve_btn = new System.Windows.Forms.CheckBox();
             this.Event_btn = new System.Windows.Forms.CheckBox();
             this.Parking_btn = new System.Windows.Forms.CheckBox();
             this.Camera_btn = new System.Windows.Forms.CheckBox();
-            this.video_panel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.audio_pause = new System.Windows.Forms.Button();
+            this.video_panel = new System.Windows.Forms.Panel();
+            this.Video_Timer = new System.Windows.Forms.Timer(this.components);
+            this.VideoTime = new System.Windows.Forms.TextBox();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.Volume_Bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -168,10 +171,11 @@
             // 
             this.Volume_Bar.LargeChange = 1;
             this.Volume_Bar.Location = new System.Drawing.Point(193, 59);
+            this.Volume_Bar.Maximum = 100;
             this.Volume_Bar.Name = "Volume_Bar";
             this.Volume_Bar.Size = new System.Drawing.Size(153, 45);
             this.Volume_Bar.TabIndex = 18;
-            this.Volume_Bar.Value = 5;
+            this.Volume_Bar.Value = 50;
             // 
             // label6
             // 
@@ -189,7 +193,7 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(888, 358);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(324, 313);
+            this.pictureBox3.Size = new System.Drawing.Size(150, 102);
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
             // 
@@ -368,15 +372,15 @@
             this.pictureBox5.TabIndex = 37;
             this.pictureBox5.TabStop = false;
             // 
-            // time_tbox
+            // curTime
             // 
-            this.time_tbox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.time_tbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.time_tbox.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.time_tbox.Location = new System.Drawing.Point(702, 6);
-            this.time_tbox.Name = "time_tbox";
-            this.time_tbox.Size = new System.Drawing.Size(176, 28);
-            this.time_tbox.TabIndex = 39;
+            this.curTime.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.curTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.curTime.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.curTime.Location = new System.Drawing.Point(702, 6);
+            this.curTime.Name = "curTime";
+            this.curTime.Size = new System.Drawing.Size(90, 15);
+            this.curTime.TabIndex = 39;
             // 
             // trackBar
             // 
@@ -387,12 +391,19 @@
             this.trackBar.Size = new System.Drawing.Size(704, 45);
             this.trackBar.TabIndex = 40;
             this.trackBar.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar.Scroll += new System.EventHandler(this.trackBar_Scroll);
+            this.trackBar.ValueChanged += new System.EventHandler(this.trackBar_ValueChanged);
+            this.trackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.trackBar_MouseDown);
+            this.trackBar.MouseEnter += new System.EventHandler(this.trackBar_MouseEnter);
+            this.trackBar.MouseLeave += new System.EventHandler(this.trackBar_MouseLeave);
+            this.trackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar_MouseUp);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.groupBox1.Controls.Add(this.VideoTime);
             this.groupBox1.Controls.Add(this.pictureBox5);
-            this.groupBox1.Controls.Add(this.time_tbox);
+            this.groupBox1.Controls.Add(this.curTime);
             this.groupBox1.Controls.Add(this.Speed_tbox);
             this.groupBox1.Controls.Add(this.trackBar);
             this.groupBox1.Controls.Add(this.pictureBox2);
@@ -463,27 +474,13 @@
             this.Camera_btn.UseVisualStyleBackColor = true;
             this.Camera_btn.CheckedChanged += new System.EventHandler(this.Camera_btn_CheckedChanged);
             // 
-            // video_panel
-            // 
-            this.video_panel.Location = new System.Drawing.Point(78, 25);
-            this.video_panel.Name = "video_panel";
-            this.video_panel.Size = new System.Drawing.Size(805, 378);
-            this.video_panel.TabIndex = 46;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(4, 83);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 47;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(17, 328);
+            this.button1.Location = new System.Drawing.Point(6, 357);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 46);
             this.button1.TabIndex = 48;
-            this.button1.Text = "button1";
+            this.button1.Text = "Select Video";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -501,14 +498,43 @@
             this.audio_pause.UseVisualStyleBackColor = false;
             this.audio_pause.Click += new System.EventHandler(this.audio_pause_Click);
             // 
+            // video_panel
+            // 
+            this.video_panel.Location = new System.Drawing.Point(78, 25);
+            this.video_panel.Name = "video_panel";
+            this.video_panel.Size = new System.Drawing.Size(805, 378);
+            this.video_panel.TabIndex = 46;
+            // 
+            // Video_Timer
+            // 
+            this.Video_Timer.Tick += new System.EventHandler(this.Video_Timer_Tick);
+            // 
+            // VideoTime
+            // 
+            this.VideoTime.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.VideoTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VideoTime.Font = new System.Drawing.Font("굴림", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.VideoTime.Location = new System.Drawing.Point(788, 6);
+            this.VideoTime.Name = "VideoTime";
+            this.VideoTime.Size = new System.Drawing.Size(89, 15);
+            this.VideoTime.TabIndex = 41;
+            // 
+            // webBrowser
+            // 
+            this.webBrowser.Location = new System.Drawing.Point(888, 463);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.Size = new System.Drawing.Size(316, 202);
+            this.webBrowser.TabIndex = 50;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1219, 729);
+            this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.audio_pause);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.video_panel);
             this.Controls.Add(this.Camera_btn);
             this.Controls.Add(this.Parking_btn);
@@ -537,6 +563,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainForm";
             this.Text = "BB Viewer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Volume_Bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -583,17 +610,19 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TrackBar UpDown;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox time_tbox;
+        private System.Windows.Forms.TextBox curTime;
         private System.Windows.Forms.TrackBar trackBar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox Dirve_btn;
         private System.Windows.Forms.CheckBox Event_btn;
         private System.Windows.Forms.CheckBox Parking_btn;
         private System.Windows.Forms.CheckBox Camera_btn;
-        private System.Windows.Forms.Panel video_panel;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button audio_pause;
+        private System.Windows.Forms.Panel video_panel;
+        private System.Windows.Forms.Timer Video_Timer;
+        private System.Windows.Forms.TextBox VideoTime;
+        private System.Windows.Forms.WebBrowser webBrowser;
     }
 }
 
