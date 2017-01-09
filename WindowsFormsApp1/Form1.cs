@@ -117,7 +117,7 @@ namespace WindowsFormsApp1
         {
             //VideoCapture cap1("2.mp4");
             InitializeComponent();
-            
+            //ㄴㅁㅇㄻㄴㄹㄴ
             this.BackColor = Color.White;
             /*make mainform's background to white*/
 
